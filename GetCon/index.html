@@ -1,0 +1,63 @@
+<html>
+<head><title>GetCon</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+body{
+margin:0;
+padding:0;
+}
+button{
+background-color:yellow;
+color:white;
+position:relative;
+top:50px;
+left:500px;
+height:50px;
+width:300px;
+font-size:30px;
+border-radius:20px;
+font-weight:bold;
+}
+button:hover{
+color:black;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+<script>
+function animateBox1() {
+    $("#box1").animate({left:'+=100px'}, function() {
+        $("#box1").animate({top:'+=100px'}, function() {
+            $("#box1").animate({left:'-=100px'}, function() {
+                $("#box1").animate({top:'-=100px'}, function() {
+                    animateBox1(); 
+                });
+            });
+        });
+    });
+}
+function animateBox2() {
+    $("#box2").animate({left:'-=100px'}, function() {
+        $("#box2").animate({top:'+=100px'}, function() {
+            $("#box2").animate({left:'+=100px'}, function() {
+                $("#box2").animate({top:'-=100px'}, function() {
+                    animateBox2(); 
+                });
+            });
+        });
+    });
+}
+$(document).ready(function(){
+    animateBox1();
+    animateBox2(); 
+});
+</script>
+<div style="background-color:yellow; height:300px; width:1280px;">
+<p style="color:white; position:absolute; left:475px; top:90px; font-size:100px; font-weight:bold;">GetCon</p>
+</div>
+<a href="login.html"><button>LOG IN</button></a>
+<div id="box1" style="background-color:yellow; height:100px; width:100px; position:relative; left:100px; top:10px;"></div>
+<div id="box2" style="background-color:yellow; height:100px; width:100px; position:relative; top:-90px; left:1100px;"></div>
+</body>
+</html>
